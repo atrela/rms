@@ -1,4 +1,5 @@
 ﻿using Logs.Agents.IIS.Commands;
+using Logs.Agents.IIS.Queries;
 using Logs.IISAgent.Model;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +23,13 @@ namespace ApiGateway.Controllers
             var insertLogEntryCmd = new InsertWebAppLogEntryCmd(log);
             await mediator.Send(insertLogEntryCmd);
             return Ok();
+        }
+
+        public async Task<IActionResult> GetAll()
+        {
+            var getLogEntriesQuery = new GetAllLogEntriesQuery();
+            var logEntries = await mediator.Send(getLogEntriesQuery);
+            return Ok(logEntries);
         }
     }
 }
