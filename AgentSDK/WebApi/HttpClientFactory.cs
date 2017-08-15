@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 
-namespace RMS.IISAgent.Data.Service
+namespace AgentSDK.WebApi
 {
     internal class HttpClientFactory
     {

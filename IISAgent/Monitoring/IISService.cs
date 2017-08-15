@@ -1,8 +1,10 @@
-﻿using RMS.IISAgent.Configuration;
+﻿using AgentSDK.ServiceBase;
+using AgentSDK.WebApi;
+using RMS.IISAgent.Configuration;
 using RMS.IISAgent.Core.Statistics.AdoNet;
 using RMS.IISAgent.Core.Web;
 using RMS.IISAgent.Data.Model;
-using RMS.IISAgent.Data.Service;
+using System;
 using System.Timers;
 
 namespace RMS.IISAgent.Monitoring
@@ -12,14 +14,14 @@ namespace RMS.IISAgent.Monitoring
         private readonly Timer timer;
         private readonly IWebServer webServer;
         private readonly IConfigurationProvider configurationProvider;
-        private readonly IGatewayClient gatewayClient;
+        private readonly IApiClient<WebAppLogDto> apiClient;
 
         public IISService(IWebServer webServer, IConfigurationProvider configurationProvider,
-            IGatewayClient gatewayClient)
+            IApiClient<WebAppLogDto> apiClient)
         {
             this.webServer = webServer;
             this.configurationProvider = configurationProvider;
-            this.gatewayClient = gatewayClient;
+            this.apiClient = apiClient;
 
             timer = new Timer(configurationProvider.MonitorTimerInterval);
             timer.Elapsed += Timer_Elapsed;
@@ -60,7 +62,10 @@ namespace RMS.IISAgent.Monitoring
 
                 var dataDto = new WebAppLogDtoFactory().Create(adoNetStats, appStats);
 
-                // gatewayClient.PushData(dataDto);
+                var agentLogResource = "iisagent/log"; // move to app config
+                var uri = new Uri($"{configurationProvider.GatewayUrl}/{agentLogResource}");
+
+                apiClient.PostData(uri, dataDto);
             }
         }
     }

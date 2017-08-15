@@ -1,4 +1,4 @@
-﻿namespace RMS.IISAgent.Monitoring
+﻿namespace AgentSDK.ServiceBase
 {
     public interface IService
     {

@@ -66,11 +66,7 @@
     <Compile Include="Data\Model\ApplicationStatisticsDtoMap.cs" />
     <Compile Include="Data\Model\WebAppLogDto.cs" />
     <Compile Include="Data\Model\WebAppLogDtoFactory.cs" />
-    <Compile Include="Data\Service\GatewayClient.cs" />
-    <Compile Include="Data\Service\HttpClientFactory.cs" />
-    <Compile Include="Data\Service\IGatewayClient.cs" />
     <Compile Include="Monitoring\IISService.cs" />
-    <Compile Include="Monitoring\IService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TinyIoC.cs" />
@@ -82,6 +78,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AgentSDK\AgentSDK.csproj">
+      <Project>{f25c0aeb-867e-46d9-b3b0-54a51bdd3e35}</Project>
+      <Name>AgentSDK</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IISAgent.Core\IISAgent.Core.csproj">
       <Project>{73c0f9ef-a15f-4dad-b38f-ebffe8bf25a3}</Project>
       <Name>IISAgent.Core</Name>

@@ -1,7 +1,9 @@
-﻿using AutoMapper;
+﻿using AgentSDK.ServiceBase;
+using AgentSDK.WebApi;
+using AutoMapper;
 using RMS.IISAgent.Configuration;
 using RMS.IISAgent.Core.Web;
-using RMS.IISAgent.Data.Service;
+using RMS.IISAgent.Data.Model;
 using RMS.IISAgent.Monitoring;
 using System.Reflection;
 using Topshelf;
@@ -54,7 +56,7 @@ namespace RMS.IISAgent
             container.Register<Configuration.IConfigurationProvider, AppConfigFileProvider>();
             container.Register<IService, IISService>();
             container.Register<IWebServer, IISServer>();
-            container.Register<IGatewayClient, GatewayClient>();
+            container.Register<IApiClient<WebAppLogDto>, HttpApiClient<WebAppLogDto>>();
             return container;
         }
     }

@@ -80,6 +80,10 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AgentSDK\AgentSDK.csproj">
+      <Project>{f25c0aeb-867e-46d9-b3b0-54a51bdd3e35}</Project>
+      <Name>AgentSDK</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IISAgent\IISAgent.csproj">
       <Project>{78341D75-D85F-40FB-9AAD-9B2755D2BD3B}</Project>
       <Name>IISAgent</Name>
