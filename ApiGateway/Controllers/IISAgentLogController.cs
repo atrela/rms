@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace ApiGateway.Controllers
 {
     [Route("iisagent/log")]
-    public class WebAppLogController : Controller
+    public class IISAgentLogController : Controller
     {
         private readonly IMediator mediator;
 
-        public WebAppLogController(IMediator mediator)
+        public IISAgentLogController(IMediator mediator)
         {
             this.mediator = mediator;
         }
