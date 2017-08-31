@@ -1,5 +1,6 @@
-﻿using Logs.Agents.IIS.Commands;
-using Logs.Base;
+﻿using ApiGateway.AppConfig;
+using AutoMapper;
+using Logs.Agents.IIS.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,8 +11,15 @@ using System.Reflection;
 
 namespace ApiGateway
 {
+    /// <summary>
+    ///     Configures services and the application's request pipeline.
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Startup"/> class.
+        /// </summary>
+        /// <param name="env">An instance of object providing info about web hosting environment.</param>
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -19,30 +27,51 @@ namespace ApiGateway
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
             Configuration = builder.Build();
         }
 
+        /// <summary>
+        ///     Gets application configuration API
+        /// </summary>
         public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        ///     Adds services to the container.
+        /// </summary>
+        /// <param name="services">A collection of defined services.</param>
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddMvc();
             services.AddMediatR(typeof(InsertWebAppLogEntryCmd).GetTypeInfo().Assembly);
-
-            // Register objects dependencies
-            services.AddTransient<IStorageConfiguration, CosmosStorageConfig>();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddCustomSwaggerConfig();
+            services.AddCustomServiceDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        ///     Configures HTTP request pipeline.
+        /// </summary>
+        /// <remarks>
+        ///     The order that middleware components are added in the Configure method defines the order in which 
+        ///     they are invoked on requests, and the reverse order for the response. 
+        ///     This ordering is critical for security, performance, and functionality.
+        /// </remarks>
+        /// <param name="app">An instance of object providing mechanism to configure application request</param>
+        /// <param name="env">An instance of object providing information about web hosting environment</param>
+        /// <param name="loggerFactory">An instance of object used to configure the logging system and
+        /// create instances of <see cref="ILogger"/> from registered logging providers</param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseStaticFiles();
             app.UseMvc();
+            app.UseCustomSwaggerSetup();
         }
     }
 }
