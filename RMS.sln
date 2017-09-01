@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Agents", "Agents", "{D2CF7D76-04E3-4AC0-A62D-22E388B0EDE9}"
 EndProject
@@ -23,11 +23,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{C4F9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{4D91B827-29B2-42E2-B34D-B4D67E626207}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{312965D3-1587-44D2-94C6-33D51016FA57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{312965D3-1587-44D2-94C6-33D51016FA57}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{F76E478B-2C8A-40C7-8DE1-1C722825D079}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logs", "Logs\Logs.csproj", "{48E3D4E8-5346-43BC-AB71-6EBB68AD440F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logs", "Logs\Logs.csproj", "{48E3D4E8-5346-43BC-AB71-6EBB68AD440F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website", "Website\Website.csproj", "{8E8DF423-94D5-4C7F-AD1F-B582A7AB29E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{78D173CD-1933-42A0-B25A-59E26D8C917E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +63,10 @@ Global
 		{48E3D4E8-5346-43BC-AB71-6EBB68AD440F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48E3D4E8-5346-43BC-AB71-6EBB68AD440F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48E3D4E8-5346-43BC-AB71-6EBB68AD440F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E8DF423-94D5-4C7F-AD1F-B582A7AB29E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E8DF423-94D5-4C7F-AD1F-B582A7AB29E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E8DF423-94D5-4C7F-AD1F-B582A7AB29E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E8DF423-94D5-4C7F-AD1F-B582A7AB29E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,5 +82,6 @@ Global
 		{312965D3-1587-44D2-94C6-33D51016FA57} = {4D91B827-29B2-42E2-B34D-B4D67E626207}
 		{F76E478B-2C8A-40C7-8DE1-1C722825D079} = {C4F9335F-42AB-478E-A044-EE686CBCC417}
 		{48E3D4E8-5346-43BC-AB71-6EBB68AD440F} = {F76E478B-2C8A-40C7-8DE1-1C722825D079}
+		{8E8DF423-94D5-4C7F-AD1F-B582A7AB29E5} = {78D173CD-1933-42A0-B25A-59E26D8C917E}
 	EndGlobalSection
 EndGlobal
