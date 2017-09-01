@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
 var app_component_1 = require("./app.component");
 var common_1 = require("@angular/common");
@@ -24,6 +25,7 @@ AppModule = __decorate([
         bootstrap: [app_component_1.AppComponent],
         providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
         imports: [
+            platform_browser_1.BrowserModule,
             core_module_1.CoreModule,
             app_routing_1.routing
         ],
