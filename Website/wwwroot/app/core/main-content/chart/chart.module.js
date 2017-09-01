@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-//import { ChartComponent } from './chart.component';
 var http_1 = require("@angular/http");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
@@ -23,7 +22,6 @@ var ChartModule = (function () {
 }());
 ChartModule = __decorate([
     core_1.NgModule({
-        // declarations: [ChartComponent],
         bootstrap: [],
         imports: [chart_routing_1.routing, http_1.HttpModule, common_1.CommonModule, forms_1.FormsModule],
         exports: [],

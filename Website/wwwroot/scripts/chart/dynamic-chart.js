@@ -1,5 +1,12 @@
 ﻿
 
+
+function fitChartBoxes()
+{
+    $('#box-line-chart-app').css('height', $('#box-line-chart-adoNet').height());
+}
+
+
 function checkIfCheckboxIsChecked(id)
 {
     return $(id).prop('checked');
@@ -166,6 +173,9 @@ function updateChartValues(
                     max: 10
                 }
             })
+
+            fitChartBoxes();
+         
 }
 
 function prepareChartArray(inValues)
