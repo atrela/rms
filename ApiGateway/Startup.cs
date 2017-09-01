@@ -16,12 +16,16 @@ namespace ApiGateway
     /// </summary>
     public class Startup
     {
+        private readonly IHostingEnvironment env;
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="Startup"/> class.
         /// </summary>
         /// <param name="env">An instance of object providing info about web hosting environment.</param>
         public Startup(IHostingEnvironment env)
         {
+            this.env = env;
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -47,7 +51,7 @@ namespace ApiGateway
             services.AddMvc();
             services.AddMediatR(typeof(InsertWebAppLogEntryCmd).GetTypeInfo().Assembly);
             services.AddAutoMapper(typeof(Startup));
-            services.AddCustomSwaggerConfig();
+            services.AddCustomSwaggerConfig(env);
             services.AddCustomServiceDependencies();
         }
 

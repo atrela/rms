@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiGateway</name>
+    </assembly>
+    <members>
+        <member name="T:ApiGateway.CosmosStorageConfig">
+            <summary>
+                Provides access to the configuration of Azure Cosmos DB.
+            </summary>
+        </member>
+        <member name="M:ApiGateway.CosmosStorageConfig.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+                Initializes a new instance of the <see cref="T:ApiGateway.CosmosStorageConfig"/> class.
+            </summary>
+            <param name="apiConfiguration"></param>
+        </member>
+        <member name="P:ApiGateway.CosmosStorageConfig.ConnectionString">
+            <summary>
+                Gets Azure Cosmos DB connection string.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.CosmosStorageConfig.IISDataStorage">
+            <summary>
+                Gets cofniguration of data storage for IIS Agent.
+            </summary>
+        </member>
+        <member name="T:ApiGateway.AppConfig.IApplicationBuilderExtensions">
+            <summary>
+                Provides extension methods for <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> to keep <see cref="T:ApiGateway.Startup"/> class
+                clean and readable.
+            </summary>
+        </member>
+        <member name="M:ApiGateway.AppConfig.IApplicationBuilderExtensions.UseCustomSwaggerSetup(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+                Enables custom Swagger configuration.
+            </summary>
+            <param name="app">An instance of object providing mechanism to configure application request</param>
+            <returns>An instance of <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> interface</returns>
+        </member>
+        <member name="T:ApiGateway.AppConfig.IServiceCollectionExtensions">
+            <summary>
+                Provides extension methods for <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> class to keep <see cref="T:ApiGateway.Startup"/>
+                class clean and readble.
+            </summary>
+        </member>
+        <member name="M:ApiGateway.AppConfig.IServiceCollectionExtensions.AddCustomSwaggerConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+                Configures and adds Swagger Generator service to the container.
+            </summary>
+            <param name="services">A collection of defined services</param>
+            <param name="env">An instance of object providing info about web hosting environment</param>
+            <returns>An instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> interface</returns>
+        </member>
+        <member name="M:ApiGateway.AppConfig.IServiceCollectionExtensions.AddCustomServiceDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Adds custom services to the container.
+            </summary>
+            <param name="services">A collection of defined services</param>
+            <returns>An instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> interface</returns>
+        </member>
+        <member name="T:ApiGateway.IISAgent.Controllers.IISAgentLogController">
+            <summary>
+                Provides methods to handle IIS Agent Log requests.
+            </summary>
+        </member>
+        <member name="M:ApiGateway.IISAgent.Controllers.IISAgentLogController.#ctor(MediatR.IMediator,AutoMapper.IMapper)">
+            <summary>
+                Initializes a new instance of the <see cref="T:ApiGateway.IISAgent.Controllers.IISAgentLogController"/> class.
+            </summary>
+            <param name="mediator">An instance of in-process messaging bus.</param>
+            <param name="mapper">An instance of object mapper</param>
+        </member>
+        <member name="M:ApiGateway.IISAgent.Controllers.IISAgentLogController.Insert(ApiGateway.IISAgent.Dto.IISAgentLogDto)">
+            <summary>
+                Adds statistics of web app to the data store.
+            </summary>
+            <param name="dto">Data Transfer Object containing web app statistics</param>
+            <returns>HTTP Response</returns>
+            <response code="200">If item is added successfully</response>
+            <response code="400">If request body does not have content</response>
+            <response code="500">If unknown error occurred</response>
+        </member>
+        <member name="M:ApiGateway.IISAgent.Controllers.IISAgentLogController.GetAll">
+            <summary>
+                Returns statistics for all web apps on the IIS server.
+            </summary>
+            <returns>HTTP Request with statistics from all web apps on the IIS server.</returns>
+            <response code="200">If all data has been retrieved successfully</response>
+            <response code="400">If data not found</response>
+            <response code="500">If unknown error occurred</response>
+        </member>
+        <member name="T:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto">
+            <summary>
+                Represents Data Transfer Object for ADO.NET statistics.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfActiveConnectionPools">
+            <summary>
+                Gets or sets number of active connection pools.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfInactiveConnectionPools">
+            <summary>
+                Gets or sets number of inactive connection pools.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfPooledConnections">
+            <summary>
+                Gets or sets number of pooled connections.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfNonPooledConnections">
+            <summary>
+                Gets or sets number of non-pooled connections.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfActiveConnections">
+            <summary>
+                Gets or sets number of active connections.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfFreeConnections">
+            <summary>
+                Gets or sets number of free connections.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfReclaimedConnections">
+            <summary>
+                Gets or sets number of reclaimed connections.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.SoftConnectsPerSecond">
+            <summary>
+                Gets or sets number of soft connects per second.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.SoftDisconnectsPerSecond">
+            <summary>
+                Gets or sets number of disconnects per second.
+            </summary>
+        </member>
+        <member name="T:ApiGateway.IISAgent.Dto.AdoNetStatisticsDtoMap">
+            <summary>
+                Represents mapping profile for <see cref="T:Logs.Agents.IIS.Model.AdoNetStatistics"/> data model.
+            </summary>
+        </member>
+        <member name="M:ApiGateway.IISAgent.Dto.AdoNetStatisticsDtoMap.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:ApiGateway.IISAgent.Dto.AdoNetStatisticsDtoMap"/> class.
+            </summary>
+        </member>
+        <member name="T:ApiGateway.IISAgent.Dto.ApplicationStatisticsDto">
+            <summary>
+                Represents Data Transfer Object for web application statistics
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.ApplicationStatisticsDto.RequestsPerSecond">
+            <summary>
+                Gets or sets number of HTTP requests per second.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.ApplicationStatisticsDto.TotalRequests">
+            <summary>
+                Gets or sets number of total HTTP requests in application.
+            </summary>
+        </member>
+        <member name="T:ApiGateway.IISAgent.Dto.ApplicationStatisticsDtoMap">
+            <summary>
+                Represents mapping profile for <see cref="T:Logs.Agents.IIS.Model.ApplicationStatistics"/> data model.
+            </summary>
+        </member>
+        <member name="M:ApiGateway.IISAgent.Dto.ApplicationStatisticsDtoMap.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:ApiGateway.IISAgent.Dto.ApplicationStatisticsDtoMap"/> class.
+            </summary>
+        </member>
+        <member name="T:ApiGateway.IISAgent.Dto.IISAgentLogDto">
+            <summary>
+                Represents Data Transfer Object for IIS Agent data.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.IISAgentLogDto.AppName">
+            <summary>
+                Gets or sets name of the web application.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.IISAgentLogDto.AdoNetStatistics">
+            <summary>
+                Gets or sets ADO.NET statistics of web application.
+            </summary>
+        </member>
+        <member name="P:ApiGateway.IISAgent.Dto.IISAgentLogDto.ApplicationStatistics">
+            <summary>
+                Gets or sets statistics of web application.
+            </summary>
+        </member>
+        <member name="T:ApiGateway.IISAgent.Dto.IISAgentLogDtoMap">
+            <summary>
+                Represents mapping profile for <see cref="T:Logs.IISAgent.Model.WebAppLogEntry"/> data model.
+            </summary>
+        </member>
+        <member name="M:ApiGateway.IISAgent.Dto.IISAgentLogDtoMap.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:ApiGateway.IISAgent.Dto.IISAgentLogDtoMap"/> class.
+            </summary>
+        </member>
+        <member name="T:ApiGateway.Startup">
+            <summary>
+                Configures services and the application's request pipeline.
+            </summary>
+        </member>
+        <member name="M:ApiGateway.Startup.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+                Initializes a new instance of the <see cref="T:ApiGateway.Startup"/> class.
+            </summary>
+            <param name="env">An instance of object providing info about web hosting environment.</param>
+        </member>
+        <member name="P:ApiGateway.Startup.Configuration">
+            <summary>
+                Gets application configuration API
+            </summary>
+        </member>
+        <member name="M:ApiGateway.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Adds services to the container.
+            </summary>
+            <param name="services">A collection of defined services.</param>
+        </member>
+        <member name="M:ApiGateway.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+                Configures HTTP request pipeline.
+            </summary>
+            <remarks>
+                The order that middleware components are added in the Configure method defines the order in which 
+                they are invoked on requests, and the reverse order for the response. 
+                This ordering is critical for security, performance, and functionality.
+            </remarks>
+            <param name="app">An instance of object providing mechanism to configure application request</param>
+            <param name="env">An instance of object providing information about web hosting environment</param>
+            <param name="loggerFactory">An instance of object used to configure the logging system and
+            create instances of <see cref="T:Microsoft.Extensions.Logging.ILogger"/> from registered logging providers</param>
+        </member>
+    </members>
+</doc>
