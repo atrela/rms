@@ -17,7 +17,7 @@
     }
 
     export interface IStatistic {
-        name: string;
+        appName: string;
         adoNetStatistics: IAdoNetStatistics;
         applicationStatistics: IApplicationStatistics;
         id: number;

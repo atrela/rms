@@ -10,10 +10,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var statistic_service_1 = require("./../../../statistic/statistic.service");
 var ChartComponent = (function () {
-    function ChartComponent(_httpService) {
+    function ChartComponent(_httpService, _router) {
         this._httpService = _httpService;
+        this._router = _router;
         this.chartLength = 11;
         this.numberOfActiveConnectionPools = [];
         this.numberOfInactiveConnectionPools = [];
@@ -27,7 +29,13 @@ var ChartComponent = (function () {
         this.totalRequests = [];
         this.requestsPerSecond = [];
     }
+    // private sub: Subscription;
     ChartComponent.prototype.ngOnInit = function () {
+        //this.sub = this._route.params.subscribe(
+        //    params => {
+        //        let name = +params['name'];
+        //        this.getStatistic(name);
+        //    });
         var _this = this;
         this._httpService.getStatistics()
             .subscribe(function (statistics) {
@@ -35,8 +43,8 @@ var ChartComponent = (function () {
             setInterval(function () {
                 _this.performUpdate();
             }, 1000);
-            _this.name = 'Test app Ola';
-            _this.getStatistic(_this.name);
+            _this.appName = 'Test app Ola';
+            _this.getStatistic(_this.appName);
         }, function (error) { return _this.errorMessage = error; });
     };
     ChartComponent.prototype.getStatistic = function (name) {
@@ -95,7 +103,7 @@ ChartComponent = __decorate([
         styleUrls: ['./chart.component.css'],
         selector: 'app-chart',
     }),
-    __metadata("design:paramtypes", [statistic_service_1.StatisticService])
+    __metadata("design:paramtypes", [statistic_service_1.StatisticService, router_1.Router])
 ], ChartComponent);
 exports.ChartComponent = ChartComponent;
 //# sourceMappingURL=chart.component.js.map

@@ -9,4 +9,6 @@
 })
 
 export class MainContentComponent {
+
+    shouldBeVisible: boolean=true;
 }

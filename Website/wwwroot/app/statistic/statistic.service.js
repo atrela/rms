@@ -19,7 +19,8 @@ require("rxjs/add/observable/throw");
 var StatisticService = (function () {
     function StatisticService(_http) {
         this._http = _http;
-        this._statisticsUrl = 'service/statistics.json';
+        //private _statisticsUrl = 'service/statistics.json';
+        this._statisticsUrl = 'http://rmsapi-dev.azurewebsites.net/iisagent/log';
         this._statisticUrl = 'service/statistic.json';
     }
     StatisticService.prototype.getStatistics = function () {

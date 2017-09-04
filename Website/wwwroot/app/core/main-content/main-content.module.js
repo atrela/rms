@@ -31,12 +31,11 @@ MainContentModule = __decorate([
             router_1.RouterModule.forChild([
                 {
                     path: 'chart/:name',
-                    component: chart_component_1.ChartComponent
+                    component: main_content_component_1.MainContentComponent
                 }
             ])
         ],
         exports: [
-            chart_component_1.ChartComponent,
             main_content_component_1.MainContentComponent
         ],
         declarations: [

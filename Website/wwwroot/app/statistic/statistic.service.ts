@@ -11,7 +11,8 @@ import { IStatistic } from './statistic';
 
 @Injectable()
 export class StatisticService {
-    private _statisticsUrl = 'service/statistics.json';
+    //private _statisticsUrl = 'service/statistics.json';
+    private _statisticsUrl = 'http://rmsapi-dev.azurewebsites.net/iisagent/log';
     private _statisticUrl = 'service/statistic.json';
 
     constructor(private _http: Http) { }

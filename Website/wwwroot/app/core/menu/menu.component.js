@@ -20,8 +20,6 @@ var MenuComponent = (function () {
         this._httpService.getStatistics()
             .subscribe(function (statistics) {
             _this.statistics = statistics;
-            var p = _this.statistics.length;
-            console.log(p);
         }, function (error) { return _this.errorMessage = error; });
     };
     return MenuComponent;

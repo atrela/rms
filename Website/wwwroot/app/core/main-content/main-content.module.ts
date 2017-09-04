@@ -15,12 +15,12 @@ import { ChartComponent } from './chart/chart.component';
         RouterModule.forChild([
             {
                 path: 'chart/:name',
-                component: ChartComponent
+                component: MainContentComponent
+                
             }
         ])
     ],
     exports: [
-        ChartComponent,
         MainContentComponent
     ],
     declarations: [
@@ -34,6 +34,7 @@ import { ChartComponent } from './chart/chart.component';
 
 export class MainContentModule {
     constructor() {
-      
+
+        
     }
 }

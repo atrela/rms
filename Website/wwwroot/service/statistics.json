@@ -1,6 +1,6 @@
 ﻿[
   {
-    "name": "Test app 1",
+    "appName": "Test app 1",
     "adoNetStatistics": {
       "numberOfActiveConnectionPools": 1,
       "numberOfInactiveConnectionPools": 3,
@@ -19,7 +19,7 @@
     "id": "5983779f7c62599fa841f7b5"
   },
   {
-    "name": "Test app 2",
+    "appName": "Test app 2",
     "adoNetStatistics": {
       "numberOfActiveConnectionPools": 1,
       "numberOfInactiveConnectionPools": 3,
@@ -38,7 +38,7 @@
     "id": "59837e68d31e189d0cbfeeb5"
   },
   {
-    "name": "Test app Ola 3",
+    "appName": "Test app Ola 3",
     "adoNetStatistics": {
       "numberOfActiveConnectionPools": 1,
       "numberOfInactiveConnectionPools": 3,

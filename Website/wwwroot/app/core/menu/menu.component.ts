@@ -20,10 +20,9 @@ export class MenuComponent implements OnInit {
     ngOnInit() {
        this._httpService.getStatistics()
            .subscribe(statistics =>
-               {
+           {
+
                this.statistics = statistics;
-               var p = this.statistics.length;
-               console.log(p);
                },
                    error => this.errorMessage = <any>error
               

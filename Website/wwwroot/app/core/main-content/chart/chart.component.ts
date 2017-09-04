@@ -1,9 +1,10 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 import { IStatistic } from './../../../statistic/statistic';
 import { StatisticService } from './../../../statistic/statistic.service';
 import { Observable } from "rxjs/Observable";
+
 declare var System: any; 
 
 @Component({
@@ -14,10 +15,10 @@ declare var System: any;
 
 export class ChartComponent implements OnInit {
         
-    constructor(private _httpService: StatisticService) { }
+    constructor(private _httpService: StatisticService, private _router: Router) { }
     chartLength: number = 11;
     statistics: IStatistic[];
-    name: string;
+    appName: string;
     errorMessage: string;
     statistic: IStatistic;
     numberOfActiveConnectionPools: number[] = [];
@@ -31,17 +32,26 @@ export class ChartComponent implements OnInit {
     softDisconnectsPerSecond: number[] = [];
     totalRequests: number[] = [];
     requestsPerSecond: number[] = [];
+   // private sub: Subscription;
 
 
     ngOnInit() {
+
+        //this.sub = this._route.params.subscribe(
+        //    params => {
+        //        let name = +params['name'];
+        //        this.getStatistic(name);
+        //    });
+
+      
         this._httpService.getStatistics()
             .subscribe(statistics => {
                 this.statistics = statistics;
                 setInterval(() => {
-                    this.performUpdate();
+                   this.performUpdate();
                 }, 1000);
-                this.name = 'Test app Ola';
-                this.getStatistic(this.name);
+                this.appName = 'Test app Ola';
+             this.getStatistic(this.appName);
                 },
             error => this.errorMessage = <any>error);
     }
@@ -54,7 +64,7 @@ export class ChartComponent implements OnInit {
 
     performUpdate()
     {
-        this.getStatistic('Ola');
+       this.getStatistic('Ola');
 
         this.numberOfActiveConnectionPools.push(this.statistic.adoNetStatistics.numberOfActiveConnectionPools);
         this.numberOfInactiveConnectionPools.push(this.statistic.adoNetStatistics.numberOfInactiveConnectionPools);
