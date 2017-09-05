@@ -13,9 +13,11 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var statistic_service_1 = require("./../../../statistic/statistic.service");
 var ChartComponent = (function () {
-    function ChartComponent(_httpService, _router) {
+    function ChartComponent(_httpService, _router, _route, _cdRef) {
         this._httpService = _httpService;
         this._router = _router;
+        this._route = _route;
+        this._cdRef = _cdRef;
         this.chartLength = 11;
         this.numberOfActiveConnectionPools = [];
         this.numberOfInactiveConnectionPools = [];
@@ -29,30 +31,24 @@ var ChartComponent = (function () {
         this.totalRequests = [];
         this.requestsPerSecond = [];
     }
-    // private sub: Subscription;
+    ChartComponent.prototype.ngOnDestroy = function () {
+        this.sub.unsubscribe();
+    };
     ChartComponent.prototype.ngOnInit = function () {
-        //this.sub = this._route.params.subscribe(
-        //    params => {
-        //        let name = +params['name'];
-        //        this.getStatistic(name);
-        //    });
         var _this = this;
-        this._httpService.getStatistics()
-            .subscribe(function (statistics) {
-            _this.statistics = statistics;
+        this.sub = this._route.params.subscribe(function (params) {
+            _this.urlName = params['name'];
             setInterval(function () {
                 _this.performUpdate();
-            }, 1000);
-            _this.appName = 'Test app Ola';
-            _this.getStatistic(_this.appName);
-        }, function (error) { return _this.errorMessage = error; });
+            }, 3000);
+        });
     };
-    ChartComponent.prototype.getStatistic = function (name) {
+    ChartComponent.prototype.getStatisticByName = function (name) {
         var _this = this;
-        this._httpService.getStatistic(name).subscribe(function (statistic) { return _this.statistic = statistic; }, function (error) { return _this.errorMessage = error; });
+        this._httpService.getStatisticByName(name).subscribe(function (statistic) { return _this.statistic = statistic; }, function (error) { return _this.errorMessage = error; });
     };
     ChartComponent.prototype.performUpdate = function () {
-        this.getStatistic('Ola');
+        this.getStatisticByName(this.urlName);
         this.numberOfActiveConnectionPools.push(this.statistic.adoNetStatistics.numberOfActiveConnectionPools);
         this.numberOfInactiveConnectionPools.push(this.statistic.adoNetStatistics.numberOfInactiveConnectionPools);
         this.numberOfPooledConnections.push(this.statistic.adoNetStatistics.numberOfPooledConnections);
@@ -103,7 +99,7 @@ ChartComponent = __decorate([
         styleUrls: ['./chart.component.css'],
         selector: 'app-chart',
     }),
-    __metadata("design:paramtypes", [statistic_service_1.StatisticService, router_1.Router])
+    __metadata("design:paramtypes", [statistic_service_1.StatisticService, router_1.Router, router_1.ActivatedRoute, core_1.ChangeDetectorRef])
 ], ChartComponent);
 exports.ChartComponent = ChartComponent;
 //# sourceMappingURL=chart.component.js.map

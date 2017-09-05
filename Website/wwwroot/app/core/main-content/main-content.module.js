@@ -15,7 +15,6 @@ var forms_1 = require("@angular/forms");
 var statistic_service_1 = require("./../../statistic/statistic.service");
 var http_1 = require("@angular/http");
 var main_content_component_1 = require("./main-content.component");
-var router_1 = require("@angular/router");
 var chart_component_1 = require("./chart/chart.component");
 var MainContentModule = (function () {
     function MainContentModule() {
@@ -28,16 +27,8 @@ MainContentModule = __decorate([
             common_1.CommonModule,
             forms_1.FormsModule,
             http_1.HttpModule,
-            router_1.RouterModule.forChild([
-                {
-                    path: 'chart/:name',
-                    component: main_content_component_1.MainContentComponent
-                }
-            ])
         ],
-        exports: [
-            main_content_component_1.MainContentComponent
-        ],
+        exports: [],
         declarations: [
             chart_component_1.ChartComponent,
             main_content_component_1.MainContentComponent

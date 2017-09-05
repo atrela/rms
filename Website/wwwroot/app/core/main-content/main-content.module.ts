@@ -12,16 +12,20 @@ import { ChartComponent } from './chart/chart.component';
         CommonModule,
         FormsModule,
         HttpModule,
-        RouterModule.forChild([
-            {
-                path: 'chart/:name',
-                component: MainContentComponent
+    //    RouterModule.forChild([
+    //        {
+    //            path: 'chart/:name',
+    //            component: ChartComponent
                 
-            }
-        ])
+    //        },
+    //        {
+    //            path: '',
+    //            component: MainContentComponent
+    //        }
+    //    ])
     ],
     exports: [
-        MainContentComponent
+       // MainContentComponent
     ],
     declarations: [
         ChartComponent,

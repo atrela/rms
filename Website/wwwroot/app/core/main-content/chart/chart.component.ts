@@ -1,6 +1,6 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { Http } from '@angular/http';
-import { Router} from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import { IStatistic } from './../../../statistic/statistic';
 import { StatisticService } from './../../../statistic/statistic.service';
 import { Observable } from "rxjs/Observable";
@@ -13,12 +13,17 @@ declare var System: any;
     selector: 'app-chart',
 })
 
-export class ChartComponent implements OnInit {
-        
-    constructor(private _httpService: StatisticService, private _router: Router) { }
+export class ChartComponent implements OnInit, OnDestroy {
+
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+       
+    constructor(private _httpService: StatisticService, private _router: Router, private _route: ActivatedRoute, private _cdRef: ChangeDetectorRef) { }
     chartLength: number = 11;
     statistics: IStatistic[];
-    appName: string;
+    urlName: string;
     errorMessage: string;
     statistic: IStatistic;
     numberOfActiveConnectionPools: number[] = [];
@@ -32,39 +37,31 @@ export class ChartComponent implements OnInit {
     softDisconnectsPerSecond: number[] = [];
     totalRequests: number[] = [];
     requestsPerSecond: number[] = [];
-   // private sub: Subscription;
-
-
+    private sub: any;
+  
     ngOnInit() {
 
-        //this.sub = this._route.params.subscribe(
-        //    params => {
-        //        let name = +params['name'];
-        //        this.getStatistic(name);
-        //    });
-
-      
-        this._httpService.getStatistics()
-            .subscribe(statistics => {
-                this.statistics = statistics;
-                setInterval(() => {
-                   this.performUpdate();
-                }, 1000);
-                this.appName = 'Test app Ola';
-             this.getStatistic(this.appName);
-                },
-            error => this.errorMessage = <any>error);
+        this.sub = this._route.params.subscribe(params => {
+            this.urlName = params['name'];
+                    setInterval(() => {
+                        this.performUpdate();
+                    }, 3000); 
+        });   
     }
 
-    getStatistic(name: string) {
-        this._httpService.getStatistic(name).subscribe(
+   
+  
+   getStatisticByName(name: string) {
+        this._httpService.getStatisticByName(name).subscribe(
             statistic => this.statistic = statistic,
             error => this.errorMessage = <any>error);    
     }
 
+   
     performUpdate()
     {
-       this.getStatistic('Ola');
+  
+        this.getStatisticByName(this.urlName);
 
         this.numberOfActiveConnectionPools.push(this.statistic.adoNetStatistics.numberOfActiveConnectionPools);
         this.numberOfInactiveConnectionPools.push(this.statistic.adoNetStatistics.numberOfInactiveConnectionPools);

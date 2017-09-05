@@ -34,6 +34,13 @@ var StatisticService = (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    StatisticService.prototype.getStatisticByName = function (name) {
+        var one = this.getStatistics()
+            .map(function (items) {
+            return items.find(function (x) { return x.appName === name; });
+        }).do(function (data) { return console.log((data)); });
+        return one;
+    };
     StatisticService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');

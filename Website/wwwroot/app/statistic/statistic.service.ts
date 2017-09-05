@@ -32,6 +32,18 @@ export class StatisticService {
 
     }
 
+    getStatisticByName(name: string): Observable<IStatistic> {
+      
+        var one = this.getStatistics()
+                    .map(items => {
+                        return items.find(x=>x.appName===name)
+                    }).do(data => console.log((data)))
+
+        return one;
+
+        
+    }
+
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');

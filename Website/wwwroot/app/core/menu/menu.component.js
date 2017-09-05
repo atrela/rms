@@ -10,10 +10,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var statistic_service_1 = require("../../statistic/statistic.service");
 var MenuComponent = (function () {
-    function MenuComponent(_httpService) {
+    function MenuComponent(_httpService, _router) {
         this._httpService = _httpService;
+        this._router = _router;
     }
     MenuComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -30,7 +32,7 @@ MenuComponent = __decorate([
         styleUrls: ['./menu.component.css'],
         selector: 'app-menu',
     }),
-    __metadata("design:paramtypes", [statistic_service_1.StatisticService])
+    __metadata("design:paramtypes", [statistic_service_1.StatisticService, router_1.Router])
 ], MenuComponent);
 exports.MenuComponent = MenuComponent;
 //# sourceMappingURL=menu.component.js.map

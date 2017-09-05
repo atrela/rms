@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { Router } from '@angular/router';
+import { Router, Routes } from '@angular/router';
 import { IStatistic } from '../../statistic/statistic';
 import { StatisticService } from '../../statistic/statistic.service';
 import { Observable } from "rxjs/Observable";
@@ -13,9 +13,11 @@ import { Observable } from "rxjs/Observable";
 
 export class MenuComponent implements OnInit {
 
-    constructor(private _httpService: StatisticService) { }
+    constructor(private _httpService: StatisticService, private _router: Router) { }
     statistics: IStatistic[];
+    statistic: IStatistic;
     errorMessage: string;
+
 
     ngOnInit() {
        this._httpService.getStatistics()
@@ -28,5 +30,6 @@ export class MenuComponent implements OnInit {
               
            );
         
-    }
+    }  
 }
+
