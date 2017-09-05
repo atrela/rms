@@ -25,7 +25,8 @@ export class MenuComponent implements OnInit {
            {
 
                this.statistics = statistics;
-               },
+           },
+
                    error => this.errorMessage = <any>error
               
            );
