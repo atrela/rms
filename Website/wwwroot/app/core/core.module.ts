@@ -34,6 +34,7 @@ import { MainContentModule } from './main-content/main-content.module';
     ]
 })
 
+
 export class CoreModule {
     constructor() {
       
