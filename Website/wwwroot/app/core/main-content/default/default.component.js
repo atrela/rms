@@ -7,18 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var MainContentComponent = (function () {
-    function MainContentComponent() {
-        this.shouldBeVisible = true;
+var DefaultComponent = (function () {
+    function DefaultComponent() {
     }
-    return MainContentComponent;
+    return DefaultComponent;
 }());
-MainContentComponent = __decorate([
+DefaultComponent = __decorate([
     core_1.Component({
-        selector: 'app-main-content',
-        templateUrl: './main-content.component.html',
-        styleUrls: ['./main-content.component.css']
+        selector: 'app-default',
+        templateUrl: './default.component.html',
+        styleUrls: ['./default.component.css']
     })
-], MainContentComponent);
-exports.MainContentComponent = MainContentComponent;
-//# sourceMappingURL=main-content.component.js.map
+], DefaultComponent);
+exports.DefaultComponent = DefaultComponent;
+//# sourceMappingURL=default.component.js.map

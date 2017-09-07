@@ -13,8 +13,9 @@ declare var System: any;
     selector: 'app-chart',
 })
 
-export class ChartComponent implements OnInit, OnDestroy {
+export class ChartComponent implements OnInit, OnDestroy{
 
+    
 
     ngOnDestroy() {
         this.sub.unsubscribe();
@@ -48,6 +49,8 @@ export class ChartComponent implements OnInit, OnDestroy {
                     }, 3000); 
         });   
     }
+
+    
 
    
   

@@ -11,11 +11,12 @@ import { Observable } from "rxjs/Observable";
     selector: 'app-menu',
 })
 
+
+ 
 export class MenuComponent implements OnInit {
 
     constructor(private _httpService: StatisticService, private _router: Router) { }
     statistics: IStatistic[];
-    statistic: IStatistic;
     errorMessage: string;
 
 
