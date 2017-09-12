@@ -1,0 +1,152 @@
+﻿<div class="content-wrapper">
+    <section class="content-header">
+        <ol class="breadcrumb"></ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <section class="col-lg-6 connectedSortable">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs pull-right"></ul>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-bar-chart-o"></i>
+                            <h3 class="box-title">{{statistic.appName}}</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-lg-12" id="box-line-chart-adoNet">
+                                    <article>
+                                        <section>
+                                            <header>
+                                                <h2 class="h2 text-center">ADO.NET Statistics</h2>
+                                            </header>
+                                            <br />
+                                            <br />
+                                            <div id="line-chart-adoNet"></div>
+                                            <br />
+                                            <table class="table text-center">
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Current value</th>
+                                                    <th>Visible</th>
+                                                    <th>Color</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of active connection pools</td>
+                                                    <td>{{statistic.adoNetStatistics.numberOfActiveConnectionPools}}</td>
+                                                    <td><input type="checkbox" id="cbActiveConnectionPools" checked="checked" /></td>
+                                                    <td><label id="lblActiveConnectionPools">X</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of inactive connection pools</td>
+                                                    <td>{{statistic.adoNetStatistics.numberOfInactiveConnectionPools}}</td>
+                                                    <td><input type="checkbox" id="cbIctiveConnectionPools" checked="checked" /></td>
+                                                    <td><label id="lblIctiveConnectionPools">X</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of pooled connections</td>
+                                                    <td>{{statistic.adoNetStatistics.numberOfPooledConnections}}</td>
+                                                    <td><input type="checkbox" id="cbPooledConnections" checked="checked" /></td>
+                                                    <td><label id="lblPooledConnections">X</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of non pooled connections</td>
+                                                    <td>{{statistic.adoNetStatistics.numberOfNonPooledConnections}}</td>
+                                                    <td><input type="checkbox" id="cbNonPooledConnections" checked="checked" /></td>
+                                                    <td><label id="lblNonPooledConnections">X</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of active connections</td>
+                                                    <td>{{statistic.adoNetStatistics.numberOfActiveConnections}}</td>
+                                                    <td><input type="checkbox" id="cbActiveConnections" checked="checked" /></td>
+                                                    <td><label id="lblActiveConnections">X</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of free connections</td>
+                                                    <td>{{statistic.adoNetStatistics.numberOfFreeConnections}}</td>
+                                                    <td><input type="checkbox" id="cbFreeConnections" checked="checked" /></td>
+                                                    <td><label id="lblFreeConnections">X</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of reclaimed connections</td>
+                                                    <td>{{statistic.adoNetStatistics.numberOfReclaimedConnections}}</td>
+                                                    <td><input type="checkbox" id="cbReclaimedConnections" checked="checked" /></td>
+                                                    <td><label id="lblReclaimedConnections">X</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Soft connects per second</td>
+                                                    <td>{{statistic.adoNetStatistics.softConnectsPerSecond}}</td>
+                                                    <td><input type="checkbox" id="cbSoftConnectsPerSecond" checked="checked" /></td>
+                                                    <td><label id="lblSoftConnectsPerSecond">X</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Soft disconnects per second</td>
+                                                    <td>{{statistic.adoNetStatistics.softDisconnectsPerSecond}}</td>
+                                                    <td><input type="checkbox" id="cbSoftDisconnectsPerSecond" checked="checked" /></td>
+                                                    <td><label id="lblSoftDisconnectsPerSecond">X</label></td>
+                                                </tr>
+                                            </table>
+                                        </section>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="col-lg-6 connectedSortable">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs pull-right"></ul>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-bar-chart-o"></i>
+                            <h3 class="box-title">{{name}}</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-lg-12" id="box-line-chart-app">
+                                    <article>
+                                        <section>
+                                            <header>
+                                                <h2 class="h2 text-center">Application Statistics</h2>
+                                            </header>
+                                            <br />
+                                            <br />
+                                            <div id="line-chart-app"></div>
+                                            <br />
+                                            <table class="table text-center">
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Current value</th>
+                                                    <th>Visible</th>
+                                                    <th>Color</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Requests per second</td>
+                                                    <td>{{statistic.applicationStatistics.requestsPerSecond}}</td>
+                                                    <td><input type="checkbox" id="cbRequestsPerSecond" checked="checked" /></td>
+                                                    <td><label id="lblRequestsPerSecond">X</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Total requests</td>
+                                                    <td>{{statistic.applicationStatistics.totalRequests}}</td>
+                                                    <td><input type="checkbox" id="cbTotalRequests" checked="checked" /></td>
+                                                    <td><label id="lblTotalRequests">X</label></td>
+                                                </tr>
+                                            </table>
+                                            <br />
+                                        </section>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+</div>
+
