@@ -19,9 +19,20 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/startbootstrap-sb-admin/css/bootstrap.min.css",
+        "../node_modules/startbootstrap-sb-admin/css/sb-admin.css",
+        "../node_modules/startbootstrap-sb-admin/css/plugins/morris.css",
+        "../node_modules/startbootstrap-sb-admin/font-awesome/css/font-awesome.min.css"
+        
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/startbootstrap-sb-admin/js/jquery.js",
+        "../node_modules/startbootstrap-sb-admin/js/bootstrap.min.js",
+        "../node_modules/startbootstrap-sb-admin/js/plugins/morris/raphael.min.js",
+        "../node_modules/startbootstrap-sb-admin/js/plugins/morris/morris.min.js",
+        "../node_modules/startbootstrap-sb-admin/js/plugins/morris/morris-data.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
