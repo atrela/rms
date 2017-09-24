@@ -8,6 +8,7 @@ import { BreadCrumbComponent } from '../core/header/bread-crumb/bread-crumb.comp
 // content module components
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
 import { PartitionTileComponent } from './main-dashboard/partition-tile.component';
+import { FaultsChartComponent } from './main-dashboard/faults-chart.component';
 
 @NgModule({
     imports: [
@@ -18,12 +19,14 @@ import { PartitionTileComponent } from './main-dashboard/partition-tile.componen
         BreadCrumbComponent,
         MainDashboardComponent,
         PartitionTileComponent,
+        FaultsChartComponent,
     ],
     declarations: [
         HeaderComponent,
         BreadCrumbComponent,
         MainDashboardComponent,
         PartitionTileComponent,
+        FaultsChartComponent,
     ],
     providers: [
 
