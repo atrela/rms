@@ -1,0 +1,10 @@
+#legend span {
+    display: inline-block;
+    position: relative;
+}
+
+#legend span:after {
+    padding-left: 4px;
+    content: '\00a0\00a0\00a0\00a0\00a0\00a0';
+    text-decoration: line-through;
+}

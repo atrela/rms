@@ -23,7 +23,8 @@
         "../node_modules/startbootstrap-sb-admin/css/bootstrap.min.css",
         "../node_modules/startbootstrap-sb-admin/css/sb-admin.css",
         "../node_modules/startbootstrap-sb-admin/css/plugins/morris.css",
-        "../node_modules/startbootstrap-sb-admin/font-awesome/css/font-awesome.min.css"
+        "../node_modules/startbootstrap-sb-admin/font-awesome/css/font-awesome.min.css",
+        "app/shared/morris/chart.css"
         
       ],
       "scripts": [

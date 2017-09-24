@@ -25,7 +25,10 @@ export class FaultsChartComponent {
               xkey: 'y',
               ykeys: ['a'],
               labels: ['Number of faults'],
-              pointSize: 0
+              pointSize: 0,
+              lineColors: [
+                  '#FC5130'
+              ]
         })
     }
 }

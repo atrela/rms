@@ -15,6 +15,11 @@ export class AlertsChartComponent {
                 { label: "Warnings", value: 60 },
                 { label: "Errors", value: 20 },
                 { label: "Fatals", value: 30 },
+            ],
+            colors: [
+                '#FFE548',
+                '#FF4B3E',
+                '#582707'
             ]
         });
     }
