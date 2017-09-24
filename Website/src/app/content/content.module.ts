@@ -11,6 +11,7 @@ import { PartitionTileComponent } from './main-dashboard/partition-tile.componen
 import { FaultsChartComponent } from './main-dashboard/charts/faults-chart.component';
 import { AlertsChartComponent } from './main-dashboard/charts/alerts-chart.component';
 import { PartitionsCpuUtilizationChartComponent } from './main-dashboard/charts/partitionsCpuUtilization-chart.component';
+import { PartitionsMemoryUtilizationChartComponent } from './main-dashboard/charts/partitionsMemoryUtilization-chart.component';
 
 @NgModule({
     imports: [
@@ -24,6 +25,7 @@ import { PartitionsCpuUtilizationChartComponent } from './main-dashboard/charts/
         FaultsChartComponent,
         AlertsChartComponent,
         PartitionsCpuUtilizationChartComponent,
+        PartitionsMemoryUtilizationChartComponent,
     ],
     declarations: [
         HeaderComponent,
@@ -32,7 +34,8 @@ import { PartitionsCpuUtilizationChartComponent } from './main-dashboard/charts/
         PartitionTileComponent,
         FaultsChartComponent,
         AlertsChartComponent,
-        PartitionsCpuUtilizationChartComponent
+        PartitionsCpuUtilizationChartComponent,
+        PartitionsMemoryUtilizationChartComponent
     ],
     providers: [
 
