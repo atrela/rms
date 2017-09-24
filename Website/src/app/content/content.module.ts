@@ -5,8 +5,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from '../core/header/header.component';
 import { BreadCrumbComponent } from '../core/header/bread-crumb/bread-crumb.component';
 
-// module components
+// content module components
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
+import { PartitionTileComponent } from './main-dashboard/partition-tile.component';
 
 @NgModule({
     imports: [
@@ -15,12 +16,14 @@ import { MainDashboardComponent } from './main-dashboard/main-dashboard.componen
     exports: [
         HeaderComponent,
         BreadCrumbComponent,
-        MainDashboardComponent
+        MainDashboardComponent,
+        PartitionTileComponent,
     ],
     declarations: [
         HeaderComponent,
         BreadCrumbComponent,
-        MainDashboardComponent
+        MainDashboardComponent,
+        PartitionTileComponent,
     ],
     providers: [
 
