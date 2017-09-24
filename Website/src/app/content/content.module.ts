@@ -10,6 +10,7 @@ import { MainDashboardComponent } from './main-dashboard/main-dashboard.componen
 import { PartitionTileComponent } from './main-dashboard/partition-tile.component';
 import { FaultsChartComponent } from './main-dashboard/charts/faults-chart.component';
 import { AlertsChartComponent } from './main-dashboard/charts/alerts-chart.component';
+import { PartitionsCpuUtilizationChartComponent } from './main-dashboard/charts/partitionsCpuUtilization-chart.component';
 
 @NgModule({
     imports: [
@@ -22,6 +23,7 @@ import { AlertsChartComponent } from './main-dashboard/charts/alerts-chart.compo
         PartitionTileComponent,
         FaultsChartComponent,
         AlertsChartComponent,
+        PartitionsCpuUtilizationChartComponent,
     ],
     declarations: [
         HeaderComponent,
@@ -30,6 +32,7 @@ import { AlertsChartComponent } from './main-dashboard/charts/alerts-chart.compo
         PartitionTileComponent,
         FaultsChartComponent,
         AlertsChartComponent,
+        PartitionsCpuUtilizationChartComponent
     ],
     providers: [
 
