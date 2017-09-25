@@ -6,10 +6,7 @@ import { BreadCrumbItem } from './bread-crumb-item';
     templateUrl: 'bread-crumb.component.html'
 })
 export class BreadCrumbComponent {
-    breadCrumbs: Array<BreadCrumbItem> = [
-        new BreadCrumbItem('Main'),
-        new BreadCrumbItem('Dashboard')
-    ];
+    @Input() items: Array<BreadCrumbItem>;
 }
 
 
