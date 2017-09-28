@@ -12,7 +12,9 @@ import { FaultsChartComponent } from './main-dashboard/charts/faults-chart.compo
 import { AlertsChartComponent } from './main-dashboard/charts/alerts-chart.component';
 import { PartitionsCpuUtilizationChartComponent } from './main-dashboard/charts/partitionsCpuUtilization-chart.component';
 import { PartitionsMemoryUtilizationChartComponent } from './main-dashboard/charts/partitionsMemoryUtilization-chart.component';
-import { AgentsConfigComponent } from './configuration/agents-config.component';
+import { AgentsConfigComponent } from './configuration/agents/agents-config.component';
+import { MyAgentsComponent } from './configuration/agents/my-agents.component';
+import { AvailableAgentsComponent } from './configuration/agents/available-agents.component';
 
 @NgModule({
     imports: [
@@ -28,6 +30,8 @@ import { AgentsConfigComponent } from './configuration/agents-config.component';
         PartitionsCpuUtilizationChartComponent,
         PartitionsMemoryUtilizationChartComponent,
         AgentsConfigComponent,
+        MyAgentsComponent,
+        AvailableAgentsComponent,
     ],
     declarations: [
         HeaderComponent,
@@ -38,7 +42,9 @@ import { AgentsConfigComponent } from './configuration/agents-config.component';
         AlertsChartComponent,
         PartitionsCpuUtilizationChartComponent,
         PartitionsMemoryUtilizationChartComponent,
-        AgentsConfigComponent
+        AgentsConfigComponent,
+        MyAgentsComponent,
+        AvailableAgentsComponent,
     ],
     providers: [
 

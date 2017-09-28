@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // content module components
 import { MainDashboardComponent } from './content/main-dashboard/main-dashboard.component';
-import { AgentsConfigComponent } from './content/configuration/agents-config.component';
+import { AgentsConfigComponent } from './content/configuration/agents/agents-config.component';
 
 const appRoutes: Routes = [
     { path: '', component: MainDashboardComponent },

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BreadCrumbItem } from '../../core/header/bread-crumb/bread-crumb-item';
+import { BreadCrumbItem } from '../../../core/header/bread-crumb/bread-crumb-item';
 
 @Component({
     selector: 'agents-config',
