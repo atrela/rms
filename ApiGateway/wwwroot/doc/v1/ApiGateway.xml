@@ -59,19 +59,19 @@
             <param name="services">A collection of defined services</param>
             <returns>An instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> interface</returns>
         </member>
-        <member name="T:ApiGateway.Data.IISAgent.Controllers.IISAgentLogController">
+        <member name="T:ApiGateway.Data.IISAgent.Controllers.IISAgentDataController">
             <summary>
                 Provides methods to handle IIS Agent Log requests.
             </summary>
         </member>
-        <member name="M:ApiGateway.Data.IISAgent.Controllers.IISAgentLogController.#ctor(MediatR.IMediator,AutoMapper.IMapper)">
+        <member name="M:ApiGateway.Data.IISAgent.Controllers.IISAgentDataController.#ctor(MediatR.IMediator,AutoMapper.IMapper)">
             <summary>
-                Initializes a new instance of the <see cref="T:ApiGateway.Data.IISAgent.Controllers.IISAgentLogController"/> class.
+                Initializes a new instance of the <see cref="T:ApiGateway.Data.IISAgent.Controllers.IISAgentDataController"/> class.
             </summary>
             <param name="mediator">An instance of in-process messaging bus.</param>
             <param name="mapper">An instance of object mapper</param>
         </member>
-        <member name="M:ApiGateway.Data.IISAgent.Controllers.IISAgentLogController.Insert(ApiGateway.Data.IISAgent.Dto.IISAgentLogDto)">
+        <member name="M:ApiGateway.Data.IISAgent.Controllers.IISAgentDataController.Insert(ApiGateway.Data.IISAgent.Dto.IISAgentLogDto)">
             <summary>
                 Adds statistics of web app to the data store.
             </summary>
@@ -81,7 +81,7 @@
             <response code="400">If request body does not have content</response>
             <response code="500">If unknown error occurred</response>
         </member>
-        <member name="M:ApiGateway.Data.IISAgent.Controllers.IISAgentLogController.GetAll">
+        <member name="M:ApiGateway.Data.IISAgent.Controllers.IISAgentDataController.GetAll">
             <summary>
                 Returns statistics for all web apps on the IIS server.
             </summary>

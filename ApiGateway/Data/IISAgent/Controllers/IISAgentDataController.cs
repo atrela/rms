@@ -15,18 +15,18 @@ namespace ApiGateway.Data.IISAgent.Controllers
     /// <summary>
     ///     Provides methods to handle IIS Agent Log requests.
     /// </summary>
-    [Route("iisagent/log")]
-    public class IISAgentLogController : Controller
+    [Route("iisagent/data")]
+    public class IISAgentDataController : Controller
     {
         private readonly IMediator mediator;
         private readonly IMapper mapper;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="IISAgentLogController"/> class.
+        ///     Initializes a new instance of the <see cref="IISAgentDataController"/> class.
         /// </summary>
         /// <param name="mediator">An instance of in-process messaging bus.</param>
         /// <param name="mapper">An instance of object mapper</param>
-        public IISAgentLogController(IMediator mediator, IMapper mapper)
+        public IISAgentDataController(IMediator mediator, IMapper mapper)
         {
             this.mediator = mediator;
             this.mapper = mapper;
