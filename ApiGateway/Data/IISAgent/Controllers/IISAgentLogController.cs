@@ -10,7 +10,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiGateway.IISAgent.Controllers
+namespace ApiGateway.Data.IISAgent.Controllers
 {
     /// <summary>
     ///     Provides methods to handle IIS Agent Log requests.

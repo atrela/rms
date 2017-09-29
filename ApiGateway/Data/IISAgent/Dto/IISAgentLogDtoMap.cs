@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Logs.IISAgent.Model;
 
-namespace ApiGateway.IISAgent.Dto
+namespace ApiGateway.Data.IISAgent.Dto
 {
     /// <summary>
     ///     Represents mapping profile for <see cref="WebAppLogEntry"/> data model.
