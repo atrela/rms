@@ -1,4 +1,4 @@
-﻿using ApiGateway.IISAgent.Dto;
+﻿using ApiGateway.Data.IISAgent.Dto;
 using AutoMapper;
 using Logs.Agents.IIS.Commands;
 using Logs.Agents.IIS.Queries;
