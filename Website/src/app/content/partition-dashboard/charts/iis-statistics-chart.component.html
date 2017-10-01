@@ -1,0 +1,46 @@
+
+<div class="col-lg-12 panel panel-default">
+    <br>
+<h4  class="text-center">IIS Agent {{id}}</h4>
+<br>
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <i class="fa fa-bar-chart-o"> ADO.NET</i>
+            </h3>
+        </div>
+        <div class="panel-body">
+                <div id={{adoNetStatiscticId}}></div>
+                <div id="legend" *ngFor="let label of adoNetLegendLabels">
+                    <span [style.color]="label.color">{{ label.name }}</span>
+                
+            </div>
+</div>
+    </div>
+  </div>
+  
+
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <i class="fa fa-bar-chart-o"> Application</i>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div id="{{applicationStatisticId}}"></div>
+            <div id="legend" *ngFor="let label of applicationLegendLabels">
+                <span [style.color]="label.color">{{ label.name }}</span>
+        </div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div> 
+        <div>&nbsp;</div>
+    </div>
+</div>
+</div>
+

@@ -2,16 +2,19 @@
     <div [class]="model.panelClass">
         <div class="panel-heading">
             <div class="row">
-                <div class="col-xs-3">
-                    <i class="fa fa-comments fa-5x"></i>
+                <div class="col-xs-6">
+                    <br>
+                 <h3>{{ model.header }}</h3>
+                 <br>
                 </div>
-                <div class="col-xs-9 text-right">
-                    <div class="huge">{{ model.agentsCount }}</div>
-                    <div>{{ model.header }}</div>
+                <div class="col-xs-6 text-right">
+                    <br>
+                    <div>Agents Count</div>
+                    <div class="huge">{{ model.agentsCount }}</div>                  
                 </div>
             </div>
         </div>
-        <a href="#">
+        <a [routerLink]="['/partition', 1]" >
             <div class="panel-footer">
                 <span class="pull-left">{{ model.subHeader }}</span>
                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

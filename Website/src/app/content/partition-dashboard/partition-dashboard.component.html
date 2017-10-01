@@ -1,0 +1,21 @@
+
+<div class="dropdown pull-right">
+<button class="btn btn-default partition-configuration" type="button" data-toggle="dropdown">
+<i class="fa fa-fw fa-gear partition-configuration"></i>
+<span class="caret"></span></button>
+        <ul class="dropdown-menu">
+                <li class="checkbox partition-configuration">
+                        <label><input type="checkbox" value="">Agent 1</label>
+                </li>
+                <li class="checkbox partition-configuration">
+                        <label><input type="checkbox" value="">Agent 2</label>
+                </li>
+        </ul>
+</div>
+<header title="Partition Name" smallTitle="Agents Statistics"></header>
+<bread-crumb></bread-crumb>
+<div class="row"> 
+        <iis-statistics-chart [id]="1" ></iis-statistics-chart>  
+        <iis-statistics-chart [id]="2" ></iis-statistics-chart>  
+        <iis-statistics-chart [id]="3" ></iis-statistics-chart>  
+</div>

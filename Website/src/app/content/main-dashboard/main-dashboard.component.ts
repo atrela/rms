@@ -14,9 +14,9 @@ export class MainDashboardComponent {
     }
 
     partitionTiles: Array<PartitionTile> = [
-        new PartitionTile('Partition 1', 'View Details', 3, PanelType.primary),
-        new PartitionTile('Partition 2', 'View Details', 1, PanelType.green),
-        new PartitionTile('Partition 3', 'View Details', 5, PanelType.yellow),
-        new PartitionTile('Partition 4', 'View Details', 7, PanelType.red)
+        new PartitionTile(1, 'Partition 1', 'View Details', 3, PanelType.primary),
+        new PartitionTile(2, 'Partition 2', 'View Details', 1, PanelType.green),
+        new PartitionTile(3, 'Partition 3', 'View Details', 5, PanelType.yellow),
+        new PartitionTile(4, 'Partition 4', 'View Details', 7, PanelType.red),
     ]
 }

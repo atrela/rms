@@ -38,7 +38,7 @@ export class PartitionsMemoryUtilizationChartComponent {
                 { time: '2017-09-24 13:35', a: 72, b: 21, c: 30, d: 37 },
                 { time: '2017-09-24 13:36', a: 75, b: 17, c: 31, d: 38 },
                 { time: '2017-09-24 13:37', a: 65, b: 19, c: 28, d: 35 },
-                { time: '2017-09-24 13:38', a: 60, b: 20, c: 27, d: 37 }
+               { time: '2017-09-24 13:38', a: 60, b: 20, c: 27, d: 37 }
               ],
               xkey: 'time',
               xLabels: 'minute',

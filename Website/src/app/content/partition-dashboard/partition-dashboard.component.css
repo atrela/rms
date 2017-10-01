@@ -1,0 +1,27 @@
+i.partition-configuration
+{
+    margin-top:10px
+}
+
+button.partition-configuration
+{
+    border-style: none;
+    background-color:#f5f5f5;
+    outline:none;
+}
+
+button.partition-configuration:hover
+{
+    border-style: none;
+    background-color: #ccc;
+    outline:none;
+}
+
+li.partition-configuration
+{
+    margin-left: 10px
+}
+
+
+
+

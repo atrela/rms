@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { routing } from './content.routing';
+
+
 // core module components
 import { HeaderComponent } from '../core/header/header.component';
 import { BreadCrumbComponent } from '../core/header/bread-crumb/bread-crumb.component';
@@ -13,9 +16,14 @@ import { AlertsChartComponent } from './main-dashboard/charts/alerts-chart.compo
 import { PartitionsCpuUtilizationChartComponent } from './main-dashboard/charts/partitionsCpuUtilization-chart.component';
 import { PartitionsMemoryUtilizationChartComponent } from './main-dashboard/charts/partitionsMemoryUtilization-chart.component';
 
+import { PartitionDashboardComponent } from  './partition-dashboard/partition-dashboard.component';
+import { IISStatisticsChartComponent } from  './partition-dashboard/charts/iis-statistics-chart.component';
+
+
 @NgModule({
     imports: [
-        BrowserModule
+        BrowserModule,
+        routing
     ],
     exports: [
         HeaderComponent,
@@ -26,6 +34,8 @@ import { PartitionsMemoryUtilizationChartComponent } from './main-dashboard/char
         AlertsChartComponent,
         PartitionsCpuUtilizationChartComponent,
         PartitionsMemoryUtilizationChartComponent,
+        PartitionDashboardComponent,
+        IISStatisticsChartComponent
     ],
     declarations: [
         HeaderComponent,
@@ -35,7 +45,9 @@ import { PartitionsMemoryUtilizationChartComponent } from './main-dashboard/char
         FaultsChartComponent,
         AlertsChartComponent,
         PartitionsCpuUtilizationChartComponent,
-        PartitionsMemoryUtilizationChartComponent
+        PartitionsMemoryUtilizationChartComponent,
+        PartitionDashboardComponent,
+        IISStatisticsChartComponent
     ],
     providers: [
 
