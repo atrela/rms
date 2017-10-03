@@ -1,9 +1,14 @@
-﻿using Logs.Base;
+﻿using ApiGateway.Domain.Configuration.Agents;
+using ApiGateway.Persistance.Context;
+using ApiGateway.Persistance.Repositories.Configuration;
+using Logs.Base;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.PlatformAbstractions;
 using Swashbuckle.AspNetCore.Swagger;
 using System.IO;
+using System.Reflection;
 
 namespace ApiGateway.AppConfig
 {
@@ -37,6 +42,26 @@ namespace ApiGateway.AppConfig
         }
 
         /// <summary>
+        ///     Adds Entity Framework configuration to the container.
+        /// </summary>
+        /// <param name="services">A collection of defined services</param>
+        /// <param name="configuration">Application configuration API</param>
+        /// <returns></returns>
+        public static IServiceCollection AddEntityFramework(this IServiceCollection services, IConfigurationRoot configuration)
+        {
+            services.AddEntityFrameworkSqlServer()
+                .AddDbContext<RmsConfigurationContext>(opt =>
+                {
+                    opt.UseSqlServer(
+                        configuration.GetConnectionString("DefaultConnString"),
+                        sql => sql.MigrationsAssembly(typeof(RmsConfigurationContext).GetTypeInfo().Assembly.GetName().Name));
+                },
+                ServiceLifetime.Scoped);
+
+            return services;
+        }
+
+        /// <summary>
         ///     Adds custom services to the container.
         /// </summary>
         /// <param name="services">A collection of defined services</param>
@@ -44,7 +69,10 @@ namespace ApiGateway.AppConfig
         public static IServiceCollection AddCustomServiceDependencies(this IServiceCollection services)
         {
             services.AddTransient<IStorageConfiguration, CosmosStorageConfig>();
+            services.AddScoped<IAgentRepository, AgentRepository>();
             return services;
         }
+
+       
     }
 }

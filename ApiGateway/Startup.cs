@@ -46,12 +46,12 @@ namespace ApiGateway
         /// <param name="services">A collection of defined services.</param>
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddMvc();
             services.AddMediatR(typeof(InsertWebAppLogEntryCmd).GetTypeInfo().Assembly);
             services.AddAutoMapper(typeof(Startup));
             services.AddCustomSwaggerConfig(env);
+            services.AddEntityFramework(Configuration);
             services.AddCustomServiceDependencies();
         }
 
