@@ -9,14 +9,18 @@ namespace ApiGateway.Tests.WebAdmin.Configuration.Agents
         [Fact]
         public void should_enable_agent()
         {
-            var userId = It.IsAny<int>();
             var agentId = It.IsAny<int>();
 
             var agentRepositoryMock = new Mock<IAgentRepository>();
-            agentRepositoryMock.Setup(r => r.Find(agentId)).Returns(new Agent());
+            agentRepositoryMock
+                .Setup(r => r.Find(agentId))
+                .Returns(Agent.Create(
+                    name: It.IsAny<string>(), 
+                    description: It.IsAny<string>(), 
+                    isEnabled: It.IsAny<bool>()));
 
             var agent = agentRepositoryMock.Object.Find(agentId);
-            agent.Enable(userId);
+            agent.Enable();
 
             agentRepositoryMock.Object.Save(agent);
 

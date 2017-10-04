@@ -11,9 +11,10 @@ using System;
 namespace ApiGateway.Persistance.Migrations
 {
     [DbContext(typeof(RmsConfigurationContext))]
-    partial class RmsConfigurationContextModelSnapshot : ModelSnapshot
+    [Migration("20171004185109_Remove CustomerId column from Configuration.Agent")]
+    partial class RemoveCustomerIdcolumnfromConfigurationAgent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -26,7 +26,6 @@ namespace ApiGateway.Persistance.Context
             agentConfiguration.Property(a => a.Id).HasField("id").IsRequired();
             agentConfiguration.Property<string>("Name").HasField("name").IsRequired();
             agentConfiguration.Property<string>("Description").HasField("description").IsRequired();
-            agentConfiguration.Property<int>("CustomerId").HasField("customerId").IsRequired();
             agentConfiguration.Property<bool>("IsEnabled").HasField("isEnabled").IsRequired();
         }
     }

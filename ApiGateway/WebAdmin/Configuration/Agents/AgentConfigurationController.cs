@@ -30,7 +30,7 @@ namespace ApiGateway.WebAdmin.Configuration.Agents
             if (agent == null)
                 return BadRequest();
 
-            agent.Enable(1);
+            agent.Enable();
             agentRepository.Save(agent);
 
             return Ok();

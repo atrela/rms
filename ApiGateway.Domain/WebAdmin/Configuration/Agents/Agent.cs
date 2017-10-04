@@ -2,17 +2,25 @@
 {
     public class Agent
     {
+        private Agent(string name, string description, bool isEnabled)
+        {
+            this.name = name;
+            this.description = description;
+            this.isEnabled = isEnabled;
+        }
+
         private int id;
         private string name;
         private string description;
-        private int customerId;
         private bool isEnabled;
 
         public int Id => id;
 
-        public void Enable(int customerId)
+        public static Agent Create(string name, string description, bool isEnabled = false) =>
+            new Agent(name, description, isEnabled);
+
+        public void Enable()
         {
-            this.customerId = customerId;
             isEnabled = true;
         }
     }
