@@ -117,6 +117,6 @@ export class IISStatisticsChartComponent implements OnInit, OnDestroy,AfterViewI
     }
 
     ngOnDestroy() {
-        this.sub.unsubscribe();
+       // this.sub.unsubscribe();
     }
 }
