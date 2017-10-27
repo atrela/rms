@@ -1,4 +1,4 @@
-﻿namespace ApiGateway.IISAgent.Dto
+﻿namespace ApiGateway.Data.IISAgent.Dto
 {
     /// <summary>
     ///     Represents Data Transfer Object for ADO.NET statistics.

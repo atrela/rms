@@ -52,6 +52,22 @@
             <param name="env">An instance of object providing info about web hosting environment</param>
             <returns>An instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> interface</returns>
         </member>
+        <member name="M:ApiGateway.AppConfig.IServiceCollectionExtensions.AddEntityFramework(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+                Adds Entity Framework configuration to the container.
+            </summary>
+            <param name="services">A collection of defined services</param>
+            <param name="configuration">Application configuration API</param>
+            <returns>An instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> interface</returns>
+        </member>
+        <member name="M:ApiGateway.AppConfig.IServiceCollectionExtensions.AddDapperConnection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+                Adds implementation of <see cref="T:System.Data.IDbConnection"/> to the Dapper connection factory.
+            </summary>
+            <param name="services">A collection of defined services</param>
+            <param name="configuration">Application configuration API</param>
+            <returns>An instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> interface</returns>
+        </member>
         <member name="M:ApiGateway.AppConfig.IServiceCollectionExtensions.AddCustomServiceDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
                 Adds custom services to the container.
@@ -59,19 +75,26 @@
             <param name="services">A collection of defined services</param>
             <returns>An instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> interface</returns>
         </member>
-        <member name="T:ApiGateway.IISAgent.Controllers.IISAgentLogController">
+        <member name="M:ApiGateway.AppConfig.IServiceCollectionExtensions.AddMediatR(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Adds MediatR implementation to the container.
+            </summary>
+            <param name="services">A collection of defined services</param>
+            <returns>An instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> interface</returns>
+        </member>
+        <member name="T:ApiGateway.Data.IISAgent.Controllers.IISAgentDataController">
             <summary>
                 Provides methods to handle IIS Agent Log requests.
             </summary>
         </member>
-        <member name="M:ApiGateway.IISAgent.Controllers.IISAgentLogController.#ctor(MediatR.IMediator,AutoMapper.IMapper)">
+        <member name="M:ApiGateway.Data.IISAgent.Controllers.IISAgentDataController.#ctor(MediatR.IMediator,AutoMapper.IMapper)">
             <summary>
-                Initializes a new instance of the <see cref="T:ApiGateway.IISAgent.Controllers.IISAgentLogController"/> class.
+                Initializes a new instance of the <see cref="T:ApiGateway.Data.IISAgent.Controllers.IISAgentDataController"/> class.
             </summary>
             <param name="mediator">An instance of in-process messaging bus.</param>
             <param name="mapper">An instance of object mapper</param>
         </member>
-        <member name="M:ApiGateway.IISAgent.Controllers.IISAgentLogController.Insert(ApiGateway.IISAgent.Dto.IISAgentLogDto)">
+        <member name="M:ApiGateway.Data.IISAgent.Controllers.IISAgentDataController.Insert(ApiGateway.Data.IISAgent.Dto.IISAgentLogDto)">
             <summary>
                 Adds statistics of web app to the data store.
             </summary>
@@ -81,7 +104,7 @@
             <response code="400">If request body does not have content</response>
             <response code="500">If unknown error occurred</response>
         </member>
-        <member name="M:ApiGateway.IISAgent.Controllers.IISAgentLogController.GetAll">
+        <member name="M:ApiGateway.Data.IISAgent.Controllers.IISAgentDataController.GetAll">
             <summary>
                 Returns statistics for all web apps on the IIS server.
             </summary>
@@ -90,119 +113,119 @@
             <response code="400">If data not found</response>
             <response code="500">If unknown error occurred</response>
         </member>
-        <member name="T:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto">
+        <member name="T:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDto">
             <summary>
                 Represents Data Transfer Object for ADO.NET statistics.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfActiveConnectionPools">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDto.NumberOfActiveConnectionPools">
             <summary>
                 Gets or sets number of active connection pools.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfInactiveConnectionPools">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDto.NumberOfInactiveConnectionPools">
             <summary>
                 Gets or sets number of inactive connection pools.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfPooledConnections">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDto.NumberOfPooledConnections">
             <summary>
                 Gets or sets number of pooled connections.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfNonPooledConnections">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDto.NumberOfNonPooledConnections">
             <summary>
                 Gets or sets number of non-pooled connections.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfActiveConnections">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDto.NumberOfActiveConnections">
             <summary>
                 Gets or sets number of active connections.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfFreeConnections">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDto.NumberOfFreeConnections">
             <summary>
                 Gets or sets number of free connections.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.NumberOfReclaimedConnections">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDto.NumberOfReclaimedConnections">
             <summary>
                 Gets or sets number of reclaimed connections.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.SoftConnectsPerSecond">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDto.SoftConnectsPerSecond">
             <summary>
                 Gets or sets number of soft connects per second.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.AdoNetStatisticsDto.SoftDisconnectsPerSecond">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDto.SoftDisconnectsPerSecond">
             <summary>
                 Gets or sets number of disconnects per second.
             </summary>
         </member>
-        <member name="T:ApiGateway.IISAgent.Dto.AdoNetStatisticsDtoMap">
+        <member name="T:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDtoMap">
             <summary>
                 Represents mapping profile for <see cref="T:Logs.Agents.IIS.Model.AdoNetStatistics"/> data model.
             </summary>
         </member>
-        <member name="M:ApiGateway.IISAgent.Dto.AdoNetStatisticsDtoMap.#ctor">
+        <member name="M:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDtoMap.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:ApiGateway.IISAgent.Dto.AdoNetStatisticsDtoMap"/> class.
+                Initializes a new instance of the <see cref="T:ApiGateway.Data.IISAgent.Dto.AdoNetStatisticsDtoMap"/> class.
             </summary>
         </member>
-        <member name="T:ApiGateway.IISAgent.Dto.ApplicationStatisticsDto">
+        <member name="T:ApiGateway.Data.IISAgent.Dto.ApplicationStatisticsDto">
             <summary>
                 Represents Data Transfer Object for web application statistics
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.ApplicationStatisticsDto.RequestsPerSecond">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.ApplicationStatisticsDto.RequestsPerSecond">
             <summary>
                 Gets or sets number of HTTP requests per second.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.ApplicationStatisticsDto.TotalRequests">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.ApplicationStatisticsDto.TotalRequests">
             <summary>
                 Gets or sets number of total HTTP requests in application.
             </summary>
         </member>
-        <member name="T:ApiGateway.IISAgent.Dto.ApplicationStatisticsDtoMap">
+        <member name="T:ApiGateway.Data.IISAgent.Dto.ApplicationStatisticsDtoMap">
             <summary>
                 Represents mapping profile for <see cref="T:Logs.Agents.IIS.Model.ApplicationStatistics"/> data model.
             </summary>
         </member>
-        <member name="M:ApiGateway.IISAgent.Dto.ApplicationStatisticsDtoMap.#ctor">
+        <member name="M:ApiGateway.Data.IISAgent.Dto.ApplicationStatisticsDtoMap.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:ApiGateway.IISAgent.Dto.ApplicationStatisticsDtoMap"/> class.
+                Initializes a new instance of the <see cref="T:ApiGateway.Data.IISAgent.Dto.ApplicationStatisticsDtoMap"/> class.
             </summary>
         </member>
-        <member name="T:ApiGateway.IISAgent.Dto.IISAgentLogDto">
+        <member name="T:ApiGateway.Data.IISAgent.Dto.IISAgentLogDto">
             <summary>
                 Represents Data Transfer Object for IIS Agent data.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.IISAgentLogDto.AppName">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.IISAgentLogDto.AppName">
             <summary>
                 Gets or sets name of the web application.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.IISAgentLogDto.AdoNetStatistics">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.IISAgentLogDto.AdoNetStatistics">
             <summary>
                 Gets or sets ADO.NET statistics of web application.
             </summary>
         </member>
-        <member name="P:ApiGateway.IISAgent.Dto.IISAgentLogDto.ApplicationStatistics">
+        <member name="P:ApiGateway.Data.IISAgent.Dto.IISAgentLogDto.ApplicationStatistics">
             <summary>
                 Gets or sets statistics of web application.
             </summary>
         </member>
-        <member name="T:ApiGateway.IISAgent.Dto.IISAgentLogDtoMap">
+        <member name="T:ApiGateway.Data.IISAgent.Dto.IISAgentLogDtoMap">
             <summary>
                 Represents mapping profile for <see cref="T:Logs.IISAgent.Model.WebAppLogEntry"/> data model.
             </summary>
         </member>
-        <member name="M:ApiGateway.IISAgent.Dto.IISAgentLogDtoMap.#ctor">
+        <member name="M:ApiGateway.Data.IISAgent.Dto.IISAgentLogDtoMap.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:ApiGateway.IISAgent.Dto.IISAgentLogDtoMap"/> class.
+                Initializes a new instance of the <see cref="T:ApiGateway.Data.IISAgent.Dto.IISAgentLogDtoMap"/> class.
             </summary>
         </member>
         <member name="T:ApiGateway.Startup">
@@ -232,14 +255,36 @@
                 Configures HTTP request pipeline.
             </summary>
             <remarks>
-                The order that middleware components are added in the Configure method defines the order in which 
-                they are invoked on requests, and the reverse order for the response. 
+                The order that middleware components are added in the Configure method defines the order in which
+                they are invoked on requests, and the reverse order for the response.
                 This ordering is critical for security, performance, and functionality.
             </remarks>
             <param name="app">An instance of object providing mechanism to configure application request</param>
             <param name="env">An instance of object providing information about web hosting environment</param>
             <param name="loggerFactory">An instance of object used to configure the logging system and
             create instances of <see cref="T:Microsoft.Extensions.Logging.ILogger"/> from registered logging providers</param>
+        </member>
+        <member name="T:ApiGateway.WebAdmin.Controllers.AgentConfigurationController">
+            <summary>
+                Provides access to agents configuration.
+            </summary>
+        </member>
+        <member name="M:ApiGateway.WebAdmin.Controllers.AgentConfigurationController.#ctor(ApiGateway.Domain.Configuration.Agents.IAgentRepository,MediatR.IMediator)">
+            <summary>
+                Initializes a new instance of the <see cref="T:ApiGateway.WebAdmin.Controllers.AgentConfigurationController"/> class.
+            </summary>
+            <param name="agentRepository">Data repository of Agent model.</param>
+            <param name="requestMediator">Common infrastruture to in-process messaging.</param>
+        </member>
+        <member name="M:ApiGateway.WebAdmin.Controllers.AgentConfigurationController.Enable(System.Int32)">
+            <summary>
+                Enables given agent.
+            </summary>
+            <param name="agentId"></param>
+            <returns>Standard HTTP response.</returns>
+            <response code="200">If operation is successfull.</response>
+            <response code="400">If data not found</response>
+            <response code="500">If unknown error occurred.</response>
         </member>
     </members>
 </doc>

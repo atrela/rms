@@ -1,7 +1,17 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
-        <li class="active">
-            <a href="#"><i class="fa fa-fw fa-dashboard"></i> Main</a>
+        <li>
+            <a routerLink="" routerLinkActive="active"><i class="fa fa-fw fa-dashboard"></i> Main</a>
+        </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#configItems">
+                <i class="fa fa-fw fa-wrench"></i> Configuration <i class="fa fa-fw fa-caret-down"></i>
+            </a>
+            <ul id="configItems" class="collapse">
+                <li>
+                    <a routerLink="/config/agents" routerLinkActive="active"> Agents</a>
+                </li>
+            </ul>
         </li>
     </ul>
 </div>

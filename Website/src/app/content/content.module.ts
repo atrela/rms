@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { routing } from './content.routing';
 
@@ -15,6 +16,8 @@ import { FaultsChartComponent } from './main-dashboard/charts/faults-chart.compo
 import { AlertsChartComponent } from './main-dashboard/charts/alerts-chart.component';
 import { PartitionsCpuUtilizationChartComponent } from './main-dashboard/charts/partitionsCpuUtilization-chart.component';
 import { PartitionsMemoryUtilizationChartComponent } from './main-dashboard/charts/partitionsMemoryUtilization-chart.component';
+import { AgentsConfigComponent } from './configuration/agents/agents-config.component';
+import { MyAgentsComponent } from './configuration/agents/my-agents.component';
 
 import { PartitionDashboardComponent } from  './partition-dashboard/partition-dashboard.component';
 import { IISStatisticsChartComponent } from  './partition-dashboard/charts/iis-statistics-chart.component';
@@ -24,6 +27,7 @@ import { IISStatisticsChartComponent } from  './partition-dashboard/charts/iis-s
     imports: [
         BrowserModule,
         routing
+        HttpClientModule
     ],
     exports: [
         HeaderComponent,
@@ -36,6 +40,8 @@ import { IISStatisticsChartComponent } from  './partition-dashboard/charts/iis-s
         PartitionsMemoryUtilizationChartComponent,
         PartitionDashboardComponent,
         IISStatisticsChartComponent
+        AgentsConfigComponent,
+        MyAgentsComponent
     ],
     declarations: [
         HeaderComponent,
@@ -48,6 +54,8 @@ import { IISStatisticsChartComponent } from  './partition-dashboard/charts/iis-s
         PartitionsMemoryUtilizationChartComponent,
         PartitionDashboardComponent,
         IISStatisticsChartComponent
+        AgentsConfigComponent,
+        MyAgentsComponent,
     ],
     providers: [
 
