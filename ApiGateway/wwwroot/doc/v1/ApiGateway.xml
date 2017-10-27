@@ -58,11 +58,26 @@
             </summary>
             <param name="services">A collection of defined services</param>
             <param name="configuration">Application configuration API</param>
-            <returns></returns>
+            <returns>An instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> interface</returns>
+        </member>
+        <member name="M:ApiGateway.AppConfig.IServiceCollectionExtensions.AddDapperConnection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+                Adds implementation of <see cref="T:System.Data.IDbConnection"/> to the Dapper connection factory.
+            </summary>
+            <param name="services">A collection of defined services</param>
+            <param name="configuration">Application configuration API</param>
+            <returns>An instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> interface</returns>
         </member>
         <member name="M:ApiGateway.AppConfig.IServiceCollectionExtensions.AddCustomServiceDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
                 Adds custom services to the container.
+            </summary>
+            <param name="services">A collection of defined services</param>
+            <returns>An instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> interface</returns>
+        </member>
+        <member name="M:ApiGateway.AppConfig.IServiceCollectionExtensions.AddMediatR(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Adds MediatR implementation to the container.
             </summary>
             <param name="services">A collection of defined services</param>
             <returns>An instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> interface</returns>
@@ -240,8 +255,8 @@
                 Configures HTTP request pipeline.
             </summary>
             <remarks>
-                The order that middleware components are added in the Configure method defines the order in which 
-                they are invoked on requests, and the reverse order for the response. 
+                The order that middleware components are added in the Configure method defines the order in which
+                they are invoked on requests, and the reverse order for the response.
                 This ordering is critical for security, performance, and functionality.
             </remarks>
             <param name="app">An instance of object providing mechanism to configure application request</param>
@@ -249,50 +264,27 @@
             <param name="loggerFactory">An instance of object used to configure the logging system and
             create instances of <see cref="T:Microsoft.Extensions.Logging.ILogger"/> from registered logging providers</param>
         </member>
-        <member name="T:ApiGateway.WebAdmin.Configuration.Agents.AgentConfigurationController">
+        <member name="T:ApiGateway.WebAdmin.Controllers.AgentConfigurationController">
             <summary>
                 Provides access to agents configuration.
             </summary>
         </member>
-        <member name="M:ApiGateway.WebAdmin.Configuration.Agents.AgentConfigurationController.#ctor(ApiGateway.Domain.Configuration.Agents.IAgentRepository)">
+        <member name="M:ApiGateway.WebAdmin.Controllers.AgentConfigurationController.#ctor(ApiGateway.Domain.Configuration.Agents.IAgentRepository,MediatR.IMediator)">
             <summary>
-                Initializes a new instance of the <see cref="T:ApiGateway.WebAdmin.Configuration.Agents.AgentConfigurationController"/> class.
+                Initializes a new instance of the <see cref="T:ApiGateway.WebAdmin.Controllers.AgentConfigurationController"/> class.
             </summary>
             <param name="agentRepository">Data repository of Agent model.</param>
+            <param name="requestMediator">Common infrastruture to in-process messaging.</param>
         </member>
-        <member name="M:ApiGateway.WebAdmin.Configuration.Agents.AgentConfigurationController.GetAvailableAgents">
+        <member name="M:ApiGateway.WebAdmin.Controllers.AgentConfigurationController.Enable(System.Int32)">
             <summary>
-                Returns list of all available agents.
+                Enables given agent.
             </summary>
-            <returns>HTTP Request with list of agents.</returns>
-            <response code="200">If all data has been retrieved successfully</response>
+            <param name="agentId"></param>
+            <returns>Standard HTTP response.</returns>
+            <response code="200">If operation is successfull.</response>
             <response code="400">If data not found</response>
-            <response code="500">If unknown error occurred</response>
-        </member>
-        <member name="T:ApiGateway.WebAdmin.Configuration.Agents.AgentConfigurationDto">
-            <summary>
-                Transfers agent configuration data between view and controller.
-            </summary>
-        </member>
-        <member name="P:ApiGateway.WebAdmin.Configuration.Agents.AgentConfigurationDto.Id">
-            <summary>
-                Gets or sets id of the agent.
-            </summary>
-        </member>
-        <member name="P:ApiGateway.WebAdmin.Configuration.Agents.AgentConfigurationDto.Description">
-            <summary>
-                Gets or sets description of the agent.
-            </summary>
-        </member>
-        <member name="P:ApiGateway.WebAdmin.Configuration.Agents.AgentConfigurationDto.IsEnabled">
-            <summary>
-                Determines whether agent is endabled or not.
-            </summary>
-        </member>
-        <member name="P:ApiGateway.WebAdmin.Configuration.Agents.AgentConfigurationDto.HelpLink">
-            <summary>
-                Gets or sets url to the agent documentation.
-            </summary>
+            <response code="500">If unknown error occurred.</response>
         </member>
     </members>
 </doc>

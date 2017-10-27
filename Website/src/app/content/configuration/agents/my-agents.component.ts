@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
     templateUrl: 'my-agents.component.html'
 })
 export class MyAgentsComponent {
-    
+    c
 }

@@ -1,13 +1,10 @@
 ﻿using ApiGateway.AppConfig;
 using AutoMapper;
-using Logs.Agents.IIS.Commands;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System.Reflection;
 
 namespace ApiGateway
 {
@@ -48,10 +45,11 @@ namespace ApiGateway
         {
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddMvc();
-            services.AddMediatR(typeof(InsertWebAppLogEntryCmd).GetTypeInfo().Assembly);
+            services.AddMediatR();
             services.AddAutoMapper(typeof(Startup));
             services.AddCustomSwaggerConfig(env);
             services.AddEntityFramework(Configuration);
+            services.AddDapperConnection(Configuration);
             services.AddCustomServiceDependencies();
         }
 
@@ -60,8 +58,8 @@ namespace ApiGateway
         ///     Configures HTTP request pipeline.
         /// </summary>
         /// <remarks>
-        ///     The order that middleware components are added in the Configure method defines the order in which 
-        ///     they are invoked on requests, and the reverse order for the response. 
+        ///     The order that middleware components are added in the Configure method defines the order in which
+        ///     they are invoked on requests, and the reverse order for the response.
         ///     This ordering is critical for security, performance, and functionality.
         /// </remarks>
         /// <param name="app">An instance of object providing mechanism to configure application request</param>

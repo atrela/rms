@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 // core module components
 import { HeaderComponent } from '../core/header/header.component';
@@ -14,11 +15,11 @@ import { PartitionsCpuUtilizationChartComponent } from './main-dashboard/charts/
 import { PartitionsMemoryUtilizationChartComponent } from './main-dashboard/charts/partitionsMemoryUtilization-chart.component';
 import { AgentsConfigComponent } from './configuration/agents/agents-config.component';
 import { MyAgentsComponent } from './configuration/agents/my-agents.component';
-import { AvailableAgentsComponent } from './configuration/agents/available-agents.component';
 
 @NgModule({
     imports: [
-        BrowserModule
+        BrowserModule,
+        HttpClientModule
     ],
     exports: [
         HeaderComponent,
@@ -30,8 +31,7 @@ import { AvailableAgentsComponent } from './configuration/agents/available-agent
         PartitionsCpuUtilizationChartComponent,
         PartitionsMemoryUtilizationChartComponent,
         AgentsConfigComponent,
-        MyAgentsComponent,
-        AvailableAgentsComponent,
+        MyAgentsComponent
     ],
     declarations: [
         HeaderComponent,
@@ -44,7 +44,6 @@ import { AvailableAgentsComponent } from './configuration/agents/available-agent
         PartitionsMemoryUtilizationChartComponent,
         AgentsConfigComponent,
         MyAgentsComponent,
-        AvailableAgentsComponent,
     ],
     providers: [
 

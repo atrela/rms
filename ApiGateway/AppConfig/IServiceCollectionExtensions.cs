@@ -1,12 +1,18 @@
 ﻿using ApiGateway.Domain.Configuration.Agents;
 using ApiGateway.Persistance.Context;
+using ApiGateway.Persistance.Queries.AgentConfiguration;
 using ApiGateway.Persistance.Repositories.Configuration;
+using Logs.Agents.IIS.Commands;
 using Logs.Base;
+using MediatR;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Reflection;
 
@@ -46,7 +52,7 @@ namespace ApiGateway.AppConfig
         /// </summary>
         /// <param name="services">A collection of defined services</param>
         /// <param name="configuration">Application configuration API</param>
-        /// <returns></returns>
+        /// <returns>An instance of <see cref="IServiceCollection"/> interface</returns>
         public static IServiceCollection AddEntityFramework(this IServiceCollection services, IConfigurationRoot configuration)
         {
             services.AddEntityFrameworkSqlServer()
@@ -57,6 +63,20 @@ namespace ApiGateway.AppConfig
                         sql => sql.MigrationsAssembly(typeof(RmsConfigurationContext).GetTypeInfo().Assembly.GetName().Name));
                 },
                 ServiceLifetime.Scoped);
+
+            return services;
+        }
+
+        /// <summary>
+        ///     Adds implementation of <see cref="IDbConnection"/> to the Dapper connection factory.
+        /// </summary>
+        /// <param name="services">A collection of defined services</param>
+        /// <param name="configuration">Application configuration API</param>
+        /// <returns>An instance of <see cref="IServiceCollection"/> interface</returns>
+        public static IServiceCollection AddDapperConnection(this IServiceCollection services, IConfigurationRoot configuration)
+        {
+            services.AddTransient<Func<IDbConnection>>(db => () =>
+                new SqlConnection(configuration.GetConnectionString("DefaultConnString")));
 
             return services;
         }
@@ -73,6 +93,18 @@ namespace ApiGateway.AppConfig
             return services;
         }
 
-       
+        /// <summary>
+        ///     Adds MediatR implementation to the container.
+        /// </summary>
+        /// <param name="services">A collection of defined services</param>
+        /// <returns>An instance of <see cref="IServiceCollection"/> interface</returns>
+        public static IServiceCollection AddMediatR(this IServiceCollection services)
+        {
+            var agentsDataStorageAssembly = typeof(InsertWebAppLogEntryCmd).GetTypeInfo().Assembly;
+            var apiPersistanceAssembly = typeof(FindMyAgents).GetTypeInfo().Assembly;
+
+            services.AddMediatR(agentsDataStorageAssembly, apiPersistanceAssembly);
+            return services;
+        }
     }
 }

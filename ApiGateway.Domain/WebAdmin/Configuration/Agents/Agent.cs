@@ -2,6 +2,11 @@
 {
     public class Agent
     {
+        internal Agent()
+        {
+
+        }
+
         private Agent(string name, string description, bool isEnabled)
         {
             this.name = name;

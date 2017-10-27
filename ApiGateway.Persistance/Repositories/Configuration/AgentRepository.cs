@@ -1,8 +1,6 @@
 ﻿using ApiGateway.Domain.Configuration.Agents;
 using ApiGateway.Persistance.Context;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace ApiGateway.Persistance.Repositories.Configuration
 {
@@ -15,14 +13,30 @@ namespace ApiGateway.Persistance.Repositories.Configuration
             this.context = context;
         }
 
-        public Agent Find(int id)
+        public async Task<Agent> FindAsync(int id)
         {
-            throw new NotImplementedException();
+            return await context.Agents.FindAsync(id);
         }
 
-        public void Save(Agent agent)
+        public async Task SaveAsync(Agent agent)
         {
-            throw new NotImplementedException();
+            if (agent.Id == 0)
+                await Insert(agent);
+            else
+                await Update(agent);
+        }
+
+        private async Task Insert(Agent agent)
+        {
+            context.Agents.Add(agent);
+            await context.SaveChangesAsync();
+        }
+
+        private async Task Update(Agent agent)
+        {
+            var originalAgent = await context.Agents.FindAsync(agent.Id);
+            context.Entry(originalAgent).CurrentValues.SetValues(agent);
+            await context.SaveChangesAsync();
         }
     }
 }
